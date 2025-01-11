@@ -1,6 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
 
+
 def scrape_usaco_contest(contest_id):
     url = f"https://usaco.org/index.php?page=viewcontest&contestid={contest_id}"
     response = requests.get(url)
@@ -14,8 +15,9 @@ def scrape_usaco_contest(contest_id):
 
     return problems
 
+
 def scrape_usaco_problem(problem_id):
-    url = f"https://usaco.org/index.php?page=viewproblem&problemid={problem_id}"
+    url = f"https://usaco.org/index.php?page=viewproblem2&problemid={problem_id}"
     response = requests.get(url)
     soup = BeautifulSoup(response.text, "html.parser")
 
@@ -23,4 +25,3 @@ def scrape_usaco_problem(problem_id):
     output_data = soup.find("pre", class_="output").text
 
     return {"input": input_data.splitlines(), "output": output_data.splitlines()}
-
