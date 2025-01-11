@@ -5,6 +5,7 @@ Only doing USACO problems because sample test cases and correct output are readi
 Future plans:
 - codeforces
 - virtual contests
+- add to homebrew
 
 Project Structure:
 offline-judge/
@@ -22,8 +23,6 @@ offline-judge/
 │   │   ├── executor.py  # Handles C++ compilation & execution
 │── problems/           # Stores scraped problems/test cases
 │── submissions/        # Stores user submissions
-│── Formula/            # Homebrew formula directory
-│   ├── oj.rb           # Homebrew package formula
 │── config.json         # Configuration settings (if needed)
 │── README.md           # Documentation
 │── LICENSE             # License file
