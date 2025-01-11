@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+python3 /usr/local/libexec/offline-judge/oj.py "$@"
