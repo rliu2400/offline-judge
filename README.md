@@ -7,6 +7,10 @@ Future plans:
 - virtual contests
 - add to homebrew
 
+python3 -m venv venv
+source venv/bin/activate  # Or use Windows equivalent
+pip install -r requirements.txt
+
 Project Structure:
 offline-judge/
 │── bin/
