@@ -1,0 +1,2 @@
+[console_scripts]
+oj = offline_judge.cli:cli

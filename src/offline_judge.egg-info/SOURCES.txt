@@ -1,0 +1,13 @@
+README.md
+pyproject.toml
+setup.py
+src/offline_judge/__init__.py
+src/offline_judge/benchmark.py
+src/offline_judge/cli.py
+src/offline_judge/scraper.py
+src/offline_judge.egg-info/PKG-INFO
+src/offline_judge.egg-info/SOURCES.txt
+src/offline_judge.egg-info/dependency_links.txt
+src/offline_judge.egg-info/entry_points.txt
+src/offline_judge.egg-info/requires.txt
+src/offline_judge.egg-info/top_level.txt

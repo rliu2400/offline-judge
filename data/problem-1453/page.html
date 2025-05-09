@@ -1,0 +1,288 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="https://www.w3.org/1999/xhtml">
+
+<head>
+
+
+ <title>USACO</title>
+ <link rel="stylesheet" type="text/css" href="current/usaco.css?v=2.0">
+ <script src="current/js/jquery.min.js"></script>
+ <script src="https://d3js.org/d3.v3.min.js"></script>
+
+<META HTTP-EQUIV="EXPIRES" CONTENT="0">
+ <META HTTP-EQUIV="CACHE-CONTROL" CONTENT="NO-CACHE">
+ <META HTTP-EQUIV="PRAGMA" CONTENT="NO-CACHE">
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    "HTML-CSS": {
+	scale: 85,
+	preferredFont: "STIX"
+    },
+  tex2jax: {
+    inlineMath: [['$','$'],['\\(','\\)']],
+    processEscapes: true,
+    skipTags: ['pre'],
+    processClass: "mathjax",
+    ignoreClass: "no-mathjax"
+  }
+});
+</script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+</head>
+
+<body class="no-mathjax">
+ <div align="center">
+  <div class="shadow1">
+
+   <div class="content">
+
+  
+ <a href="index.php"><img src="current/images/usaco_logo.png" height="130px" border="0px" /></a> 
+
+    <div class="navbar" align="left" border="10px">
+     <ul>
+      <li><a href="index.php">Overview</a></li> 
+      <li><a href="index.php?page=details">Details / FAQ</a></li>
+      <li><a href="index.php?page=training">Training</a></li>
+      <li><a href="index.php?page=history">History</a></li>
+      <li><a href="index.php?page=resources">Resources</a></li>
+     </ul>
+    </div><br/>
+
+   
+    
+
+
+<div style="position:relative; float:left; left:10px; top:-50px; width:550px;"> 
+<div class="panel">
+
+<h2> USACO 2024 December Contest, Platinum </h2>
+<h2> Problem 2. It's Mooin' Time </h2>
+ 
+</div>
+</div>
+
+<div align="right" style="position:relative; float:right; right:30px; top:-40px; width:350px;">
+
+<button style="margin-bottom:6px;" type="button" onClick="window.location='index.php?page=dec24results';">Return to Problem List</button><br style="padding-top:6px"/>
+Contest has ended.
+
+</div>
+
+<br style="clear:both" />
+
+
+<div id="last-status" style="padding:10px; position:relative; float:left; left:30px; top:-45px; width:820px; border:1px solid black; background-color:#FFF; " 
+	data-response-code="-1" data-sid="-1"> 
+   <img src="current/images/ajax.gif"/> <p style="display:inline;"> <b>Log in to allow submissions in analysis mode</b></p>
+<div id="trial-information"></div>
+<p style="text-align:left;" class="mono prewrap output-data"></p>
+</div>
+
+<br style="clear:both" />
+
+<div align="right" style="position:relative; float:right; right:40px; top:-93px; width:350px; z-index:2; padding:0px;">
+
+<form style="padding-top:60px;" action=""> 
+<select name="lang" style="background-color:#eee;" id="choose-language">
+<option value='en' selected='yes'>English (en)</option>
+<option value='fr'>French (fr)</option>
+<option value='ru'>Russian (ru)</option>
+<option value='es'>Spanish (es)</option>
+<option value='zh'>Chinese (zh)</option>
+</select>
+</form>
+
+</div>
+
+<div align="left" style="position:relative; float:left; left:30px; top:-100px; width:840px; z-index:1;"> 
+<div align="left" class="problem-text" style='width:800px; padding-top:10px;'>
+<span id="probtext-text" class="mathjax">
+<p><strong>**Note: The time limit for this problem is 3s, 1.5x the default.**</strong>
+
+<p>Bessie has a string of length $N$ ($1\le N\le 3\cdot 10^5$) consisting solely of
+the characters M and O. For each position $i$ of the string, there is a cost
+$c_i$ to change the character at that position to the other character
+($1\le c_i\le 10^8$).
+
+<p>Bessie thinks the string will look better if it contains more moos of length $L$
+($1\le L\le \min(N, 3)$). A moo of length $L$ is an M  followed by $L-1$ Os.
+
+<p>For each positive integer $k$ from $1$ to $\lfloor N/L\rfloor$ inclusive,
+compute the minimum cost to change the string to contain at least $k$ substrings
+equal to a moo of length
+$L$.
+
+<p><div class='prob-in-spec'><h4>INPUT FORMAT (input arrives from the terminal / stdin):</h4>
+The first line contains $L$ and $N$.
+
+<p>The next line contains Bessie's length-$N$ string, consisting solely of Ms and
+Os.
+
+<p>The next line contains space-separated integers $c_1\dots c_N$.
+</div>
+
+<p><div class='prob-out-spec'><h4>OUTPUT FORMAT (print output to the terminal / stdout):</h4>
+Output $\lfloor N/L\rfloor$ lines, the answer for each $k$ in increasing order.
+</div>
+
+<p><h4>SAMPLE INPUT:</h4><pre class='in'>
+1 4
+MOOO
+10 20 30 40
+</pre><h4>SAMPLE OUTPUT:</h4> <pre class='out'>
+0
+20
+50
+90
+</pre>
+
+<p><h4>SAMPLE INPUT:</h4><pre class='in'>
+3 4
+OOOO
+50 40 30 20
+</pre><h4>SAMPLE OUTPUT:</h4> <pre class='out'>
+40
+</pre>
+
+<p><h4>SAMPLE INPUT:</h4><pre class='in'>
+2 20
+OOOMOMOOOMOOOMMMOMOO
+44743602 39649528 94028117 50811780 97338107 30426846 94909807 22669835 78498782 18004278 16633124 24711234 90542888 88490759 12851185 74589289 54413775 21184626 97688928 10497142
+</pre><h4>SAMPLE OUTPUT:</h4> <pre class='out'>
+0
+0
+0
+0
+0
+12851185
+35521020
+60232254
+99881782
+952304708
+</pre>
+<h4>SAMPLE INPUT:</h4><pre class='in'>
+3 20
+OOOMOMOOOMOOOMMMOMOO
+44743602 39649528 94028117 50811780 97338107 30426846 94909807 22669835 78498782 18004278 16633124 24711234 90542888 88490759 12851185 74589289 54413775 21184626 97688928 10497142
+</pre><h4>SAMPLE OUTPUT:</h4> <pre class='out'>
+0
+0
+0
+44743602
+119332891
+207066974
+</pre>
+<div class='prob-section'><h4>SCORING:</h4>
+
+<p><ul><li>Input 5: $L=3, N\le 5000$</li><li>Input 6: $L=1$</li><li>Inputs 7-10: $L=2$</li><li>Inputs 11-18: $L=3$</li></ul>
+
+<p></div>
+
+<p>
+
+<p>Problem credits: Benjamin Qi
+</span>
+</div>
+
+           Contest has ended.  No further submissions allowed.
+    
+</div>
+
+<div align="left" style="position:relative; float:left; left:30px; top:-70px; width:840px;"> 
+
+</div>
+
+<br style="clear:both" />
+
+<script>
+ var retries = 100, timeout = 1000;
+
+ function postback()
+ { 
+     var sid = $('#last-status').data('sid'); if (sid == -1) return;
+     $.post('current/tpcm/status-update.php', { sid: sid }, update_response, 'json'); 
+ }
+
+ function update_response(s)
+ {
+     // only try a limited number of times
+     if (--retries < 0) return;
+
+     // if there is xml data, update the DOM
+     if (s != null)
+     {
+	 $('#last-status img').attr("src","current/images/medal_none.png");
+	 if (parseInt(s.cd) <= -8 && s.sc == 'status-working') { $('#last-status img').attr("src","current/images/ajax.gif"); }
+
+         // change class and text of the response box
+         $('#last-status').removeClass().addClass(s.sc);
+         $('#last-status p').text(s.sr);
+
+         // change the response code of the data section
+         $('#last-status').data('response-code', parseInt(s.cd));
+	 $('#last-status .output-data').hide();
+
+	 if (s.output != null)
+	 {
+	     $('#last-status .output-data').show().text(s.output);
+	     // if the status is in a "working" state, keep checking
+	     if (parseInt($('#last-status').data('response-code')) <= -8)
+		 { setTimeout(postback, timeout); timeout *= 1.1; }
+
+	     return;
+	 }
+
+	 if (s.jd != null && s.jd.length != 0)
+	     $('#trial-information').html(s.jd);
+     }
+
+     // if the status is in a "working" state, keep checking
+     if (parseInt($('#last-status').data('response-code')) <= -8)
+         { setTimeout(postback, timeout); timeout *= 1.1; }
+ }
+
+ $(document).ready(function(){
+     $('#last-status .output-data').hide();
+     $('#last-status img').attr("src","current/images/medal_none.png");
+     if ($('#last-status').length) postback();
+
+     $('.masterTooltip').hover(function(){
+	 // Hover over code
+	 var title = $(this).attr('title');
+	 $(this).data('tipText', title).removeAttr('title');
+	 $('<p class="tooltip"></p>').text(title).appendTo('body').fadeIn('fast');
+     }, function() {
+	 // Hover out code
+	 $(this).attr('title', $(this).data('tipText'));
+	 $('.tooltip').remove();
+     }).mousemove(function(e) {
+	 var mousex = e.pageX + 20; //Get X coordinates
+	 var mousey = e.pageY + 10; //Get Y coordinates
+	 $('.tooltip').css({ top: mousey, left: mousex })
+     });
+ });
+
+ $('#choose-language').change(function(e){
+     window.location = "index.php?page=viewproblem2&cpid=1453&lang=" + $(this).val();
+ });
+
+</script>
+
+
+   </div>
+  </div>
+ </div>
+
+ <br style="clear:both" />
+
+</body>
+
+</html>
+
+
